@@ -6,9 +6,7 @@ import cors from "cors";
 import ScheduleModel from "./models/schedules.js";
 
 mongoose
-  .connect(
-    "mongodb+srv://jzndjxjcbd:Deadpool23923.@cluster0.6ofd9.mongodb.net/schedules"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log("DB ok");
     const count = await mongoose.connection.db
@@ -66,7 +64,7 @@ app.get("/auditories", async (req, res) => {
   res.json(auditoriesList);
 });
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log(err);
   }
