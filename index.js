@@ -1,3 +1,4 @@
+// stable version 1.0.0
 import express from "express";
 import mongoose from "mongoose";
 import getSchedule from "./database/fetchAuditories.js";
